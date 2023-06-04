@@ -141,6 +141,8 @@ A string
 | \n            | แสดงค่า NewLine (ขึ้นบรรทัดใหม่)                                         |          |
 | \0            | ไม่แสดงค่า<br>แต่เป็นตัวสิ้นสุดของ CharSequence<br>ให้การแสดงผลสิ้นสุดลง |          |
 
+---
+
 ## Basic Program 2. "Sum"
 
 ```c
@@ -253,6 +255,8 @@ if (condition) {
   // ทำเมื่อ condition เป็นเท็จ
 }
 ```
+
+---
 
 ## Basic Program 3. "Fibonucci"
 
