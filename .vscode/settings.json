@@ -1,0 +1,9 @@
+{
+	"explorer.sortOrder": "type",
+	"explorer.openEditors.sortOrder": "alphabetical",
+	"markdownlint.config": {
+		"no-inline-html": {
+			"allowed_elements": ["br", "img", "i", "sup", "sub"]
+		}
+	}
+}
