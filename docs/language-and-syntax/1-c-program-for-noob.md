@@ -167,6 +167,11 @@ int main() {
 5 + 7 = 12
 ```
 
+### ถ้าไม่ระบุอะไร โปรแกรมทำงานตามลำดับ จากบนลงล่าง
+
+![image](https://github.com/krist7599555/ocom/assets/19445033/9257ae58-ceb3-474d-9c3e-c0513ac65cd3)
+
+
 ### อะไรคือ `int a = 0;`
 
 `int a = 0;` เป็นการประกาศตัวแปร(variable) เปรียบเหมือนตัวทดในกระดาษทด ที่ถ้ากระดาษยังมีที่ว่างอยู่ เราก็จะใช้พื้นที่ว่างมาทดค่าได้
@@ -257,6 +262,8 @@ if (condition) {
 }
 ```
 
+![image](https://github.com/krist7599555/ocom/assets/19445033/25d09c39-a7bf-4121-81a0-b77e0f2147f6)
+
 ---
 
 ## Basic Program 3. "Fibonucci"
@@ -317,6 +324,10 @@ while (ยังไม่ถึงเส้นชัย) {
   เดินต่อไป
 }
 ```
+
+![image](https://github.com/krist7599555/ocom/assets/19445033/0696dcda-6d90-468a-a60b-30bac7a321b1)
+
+เป็นรูปแบบการทำ loop แบบวนซ้ำ
 
 ### อะไรคือ `i += 1`
 
@@ -385,11 +396,16 @@ int main() {
 
 ### ลองตั้ง function ในการสลับค่าดู
 
+`function` คือก้อนชุดคำสั่งที่รับ input แล้วสร้าง output. (I -> O)
+
+![image](https://github.com/krist7599555/ocom/assets/19445033/65931fa9-8ee7-47b3-82de-4ba2ee53a2cf)
+
+
 ```cpp
 // fib_forloop_swap.cpp
 #include <stdio.h>
 
-void swap(int* a, int *b) {
+void swap(int* a, int *b) { // added
   int tmp = *a;
   *a = *b;
   *b = tmp;
@@ -405,6 +421,13 @@ int main() {
   }
 }
 ```
+
+ตัวอย่างข้างบนได้เพิ่ม function `void swap(int* a, int *b)` 
+
+- input ที่รับตำแหน่งที่ทด 2 ตำแหล่ง 
+- output แก้ไขให้ค่าของ a, b ให้สลับกัน
+
+<!-- TODO: review -->
 
 ### อะไรคือ `int*`
 
