@@ -2,14 +2,38 @@
 	"name": "ocom",
 	"version": "0.0.1",
 	"private": true,
+	"packageManager": "pnpm@8.6.1",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"dev": "wireit",
+		"build": "wireit",
+		"preview": "wireit",
+		"check": "wireit",
+		"check:watch": "wireit",
+		"lint": "wireit",
+		"format": "wireit"
+	},
+	"wireit": {
+		"dev": {
+			"command": "vite dev"
+		},
+		"build": {
+			"command": "vite build"
+		},
+		"preview": {
+			"command": "vite preview"
+		},
+		"check": {
+			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+		},
+		"check:watch": {
+			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		},
+		"lint": {
+			"command": "prettier --plugin-search-dir . --check . && eslint ."
+		},
+		"format": {
+			"command": "prettier --plugin-search-dir . --write ."
+		}
 	},
 	"devDependencies": {
 		"@fontsource/noto-sans": "^5.0.2",
@@ -30,6 +54,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
 		"gray-matter": "^4.0.3",
+		"pnpm": "^8.6.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"prism-themes": "^1.9.0",
@@ -40,7 +65,8 @@
 		"tailwindcss": "^3.3.2",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
-		"vite": "^4.3.9"
+		"vite": "^4.3.9",
+		"wireit": "^0.9.5"
 	},
 	"type": "module",
 	"dependencies": {
