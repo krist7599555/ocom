@@ -25,7 +25,12 @@ export const _ALL_DOCS = pipe(
 					  };
 			})
 		);
-		const path_id = '/docs/' + path_segments.map((it) => it.token).join('/');
+		const path_id =
+			'/docs/' +
+			path_segments
+				.map((it) => it.token)
+				.filter((it) => it != 'general')
+				.join('/');
 		return {
 			github_link:
 				`https://github.com/krist7599555/ocom/blob/master/docs/` + path.split('/docs/')[1],
