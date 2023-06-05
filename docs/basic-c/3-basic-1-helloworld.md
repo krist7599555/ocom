@@ -22,13 +22,13 @@ int main() {
 
 แต่ทำไมแค่แสดงผลถึงใช้โคดหลายส่วนจัง?
 
-### อะไรคือ `#include <stdio.h>`
+## อะไรคือ `#include <stdio.h>`
 
-#### อะไรคือ `#include`
+### อะไรคือ `#include`
 
 `#include` เป็นคำสั้งโหลดชุดคำสั้งมาใช้ โดยวิธีการทำงานคือ copy-paste file [`stdio.h`](https://github.com/gcc-mirror/gcc/blob/f66e0a94ad7bc18538c8207fc2c86b62e4a51bb2/fixincludes/tests/base/stdio.h#L74-L76) ไว้ข้างบนเฉยๆเลย
 
-#### อะไรคือ `stdio.h`
+### อะไรคือ `stdio.h`
 
 `stdio.h` เป็นไฟล์ภาษา c นี้แหละ ที่ทำหน้าที่รับ input แล้วก็แสดงผล
 
@@ -80,7 +80,7 @@ extern int printf( const char *, __gnuc_va_list );
    > |`#include <math.h>`| [`#include <cmath>`](https://cplusplus.com/reference/cmath) |`pow`,`sqrt`,`hypot`,`ceil`,`floor`|
    > |`#include <stdlib.h>`| [`#include <cstdlib>`](https://cplusplus.com/reference/cstdlib) |`qsort`,`rand`, `abs`,`malloc`,`exit`,`atoi`|
 
-### อะไรคือ `int main() {}`
+## อะไรคือ `int main() {}`
 
 เพราะโปรแกรมนึงสามารถทำงานได้หลายอย่าง เราเลยต้องระบบให้มันว่า งานแรกที่เริ่มทำคืออะไร ซึ่งกำหนดว่างานแรกที่ทำต้องชื่อว่า `main` เท่านั้น
 
@@ -109,7 +109,7 @@ extern int printf( const char *, __gnuc_va_list );
 | 130              | Script terminated by Control\-C                              | Ctl\-C                   | Control\-C is fatal error signal 2, \(130 = 128 \+ 2, see above\)                                               |
 | 255\*            | Exit status out of range                                     | exit \-1                 | exit takes only integer args in the range 0 \- 255                                                              |
 
-### อะไรคือ `printf`
+## อะไรคือ `printf`
 
 `printf` เป็น function ที่ใช้แสดงค่า CharSequence และค่ารูปแบบอื่นๆออกมาทางหน้าจอ (standard output)
 
