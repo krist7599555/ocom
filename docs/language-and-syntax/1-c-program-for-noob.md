@@ -171,7 +171,6 @@ int main() {
 
 ![image](https://github.com/krist7599555/ocom/assets/19445033/9257ae58-ceb3-474d-9c3e-c0513ac65cd3)
 
-
 ### อะไรคือ `int a = 0;`
 
 `int a = 0;` เป็นการประกาศตัวแปร(variable) เปรียบเหมือนตัวทดในกระดาษทด ที่ถ้ากระดาษยังมีที่ว่างอยู่ เราก็จะใช้พื้นที่ว่างมาทดค่าได้
@@ -196,6 +195,11 @@ int main() {
 
 ## Basic Program 3. "Odd Even"
 
+โปรแกรมนี้จะรับค่า `a` มาแล้วเช็คว่าหาร 2 ลงตัวหรือเปล่า
+
+- ถ้า หาร 2 ลงตัว (หาร 2 แล้วไม่เหลือเศษ ก็เป็นเลขคู่) ให้แสดงคำว่า `"even"`
+- หรือถ้าหารไม่ลงตัว (เหลือเศษมากกว่า 0) ให้แสดง `"odd"`
+
 ```c
 // sum.c
 #include <stdio.h>
@@ -211,11 +215,6 @@ int main() {
   return 0;
 }
 ```
-
-โปรแกรมนี้จะรับค่า `a` มาแล้วเช็คว่าหาร 2 ลงตัวหรือเปล่า
-
-- ถ้า หาร 2 ลงตัว (หาร 2 แล้วไม่เหลือเศษ ก็เป็นเลขคู่) ให้แสดงคำว่า `"even"`
-- หรือถ้าหารไม่ลงตัว (เหลือเศษมากกว่า 0) ให้แสดง `"odd"`
 
 ### อะไรคือ `a % 2`
 
@@ -250,9 +249,9 @@ int main() {
 - เป็นจริง(`true`)
 - เป็นเท็จ(`false`)
 
-### อะไรคือ `if`
+### อะไรคือ `if/else`
 
-`if` เป็นการแสดงเงื่อนไขการทำ ให้ทำถ้าเงื่อนไขเป็นจริง
+`if` เป็นการแสดงเงื่อนไขการทำ ให้ทำถ้าเงื่อนไขเป็นจริง. และถ้าไม่จริงก็ไปทำ `else` ต่อได้
 
 ```cpp
 if (condition) {
@@ -263,6 +262,10 @@ if (condition) {
 ```
 
 ![image](https://github.com/krist7599555/ocom/assets/19445033/25d09c39-a7bf-4121-81a0-b77e0f2147f6)
+
+### ทำให้สั้นขึ้นด้วย `if/else` แบบย่อ (ternary operator)
+
+<!--  -->
 
 ---
 
@@ -344,14 +347,16 @@ while (ยังไม่ถึงเส้นชัย) {
 รูปแบบ `init, checkvalid, update` นี้จะเกิดขึ้นบ่อยๆมากเขาเลยสร้าง syntax ที่ชื่อว่า `for` ขึ้นมาเพิ่มยุบรวม 3 ตัวนี้
 
 ```cpp
-init
+//  เขียนแบบใช้ while
+init;
 while (check_valid) {
   ...
-  update
+  update;
 }
+```
 
-แปลงจาก while กลายเป็น for
-
+```cpp
+// เขียนแบบใช้ for
 for (init; check_valid; update) {
   ...
 }
@@ -366,6 +371,7 @@ for (init; check_valid; update) {
 int main() {
   int a = 0, b = 1;
   int i = 0;
+  // --- begin ---
   while (i <= 10) {
     printf("fib(%d) = %d\n", i, a);
     int tmp = a;
@@ -373,6 +379,7 @@ int main() {
     b = tmp;
     i += 1;
   }
+  // --- end ---
 }
 ```
 
@@ -385,24 +392,24 @@ int main() {
 int main() {
   int a = 0, b = 1;
   int i = 0;
+  // --- begin ---
   for (int i = 0; i <= 10; i += 1) {
     printf("fib(%d) = %d\n", i, a);
     int tmp = a;
     a += b;
     b = tmp;
   }
+  // --- end ---
 }
 ```
 
-### ลองตั้ง function ในการสลับค่าดู
+### ลองตั้ง function ในการสลับค่าดู (ยากเกินไปข้ามก่อนได้)
 
 `function` คือก้อนชุดคำสั่งที่รับ input แล้วสร้าง output. (I -> O)
 
 ![image](https://github.com/krist7599555/ocom/assets/19445033/65931fa9-8ee7-47b3-82de-4ba2ee53a2cf)
 
-
 ```cpp
-// fib_forloop_swap.cpp
 #include <stdio.h>
 
 void swap(int* a, int *b) { // added
@@ -422,17 +429,37 @@ int main() {
 }
 ```
 
-ตัวอย่างข้างบนได้เพิ่ม function `void swap(int* a, int *b)` 
+ตัวอย่างข้างบนได้เพิ่ม function `void swap(int* a, int *b)`
 
-- input ที่รับตำแหน่งที่ทด 2 ตำแหล่ง 
+- input ที่รับตำแหน่งที่ทด 2 ตำแหล่ง
 - output แก้ไขให้ค่าของ a, b ให้สลับกัน
 
-<!-- TODO: review -->
+### อะไรคือ `int*` (ยากเกินไปข้ามก่อนได้)
 
-### อะไรคือ `int*`
-
-- `int* a` คือตำแหน่งของกระดาษทด ที่ตรงนั้นควรจะทดเลขจำนวนเต็มได้ 1 ค่า.
+- `int* a` คือ Pointer หมายถึงตำแหน่งของกระดาษทด ที่ตรงนั้นควรจะทดเลขจำนวนเต็มได้ 1 ค่า.
 - สามารถใช้ `*a` เพื่อแปลงจะตำแหน่ง เป็นค่าที่ทดไว้แทน
 - `&a` คือ ตำแหน่งบนกระดาษทดของตัวแปร `a`
 
 เรื่องที่เราพูดๆกันอยู่นี้เรียกว่า `Pointer` เป็นเรื่องที่น่าสนใจดี แต่ข้อเสียตือ bug ได้ง่าย
+
+```cpp
+int main() {
+    int i = 0;
+    while (scanf("%c", &input[i]) == 1 && input[i] != '\n') {
+        i += 1;
+    }
+    int input_size = i;
+    input[input_size] = '\0';
+    for (int start = input_size - 1; start >= 0; start -= 1) {
+        if (input[start] == ' ') {
+            printf("%s ", &input[start + 1]);
+            input[start] = '\0';
+        } else if (start == 0) {
+            printf("%s", &input[start]);
+        }
+
+    }
+    printf("\n");
+    return 0;
+}
+```
