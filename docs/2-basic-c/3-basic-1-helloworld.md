@@ -59,7 +59,8 @@ extern int printf( const char *, __gnuc_va_list );
 >
 > `char*` ในที่นี้หมายถึง Character หลายๆตัว เลยหมายถึงคำ CharSequence/Word/Sentense/Text/Paragraph/String
 >
-> จากคำสั้ง `printf("Hello World!")` คำว่า<br> > `"Hello World!"` จึงมาจาก `['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0']` เป็น CharSequence
+> จากคำสั้ง `printf("Hello World!")` คำว่า
+> <br>`"Hello World!"` จึงมาจาก `['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0']` เป็น CharSequence
 
 นี้แหละคือความเท่ของ `.h` (header file) คือเป็นไฟล์ที่ช่วยบอกว่า จะมีของหน้าตาแบบไหนชื่ออะไร แต่ยังไม่จำเป็นต้องเขียนวิธีการทำงานลงไปก็ได้
 

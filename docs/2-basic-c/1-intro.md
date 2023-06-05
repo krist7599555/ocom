@@ -15,6 +15,9 @@ title: Basic C Program
 1. โปรแกรม printf เบื่องต้นด้วย Hello World
 1. ลำดับการทำงานแบบ sequence
 1. ลำดับการทำงานแบบ branch (`if/else`)
+1. ลำดับการทำงานแบบ loop (`while/for`)
+1. เก็บข้อมูลด้วย array
+1. algorithm เบื่องต้น (bubble sort)
 
 ## สาเหตุที่ต้องเรียน C ก่อน
 
