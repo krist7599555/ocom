@@ -1,1 +1,3 @@
-move to /basic-c
+---
+redirect: /basic-c
+---
