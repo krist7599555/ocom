@@ -83,7 +83,67 @@ if (condition) {
 
 ![image](https://github.com/krist7599555/ocom/assets/19445033/25d09c39-a7bf-4121-81a0-b77e0f2147f6)
 
-## ทำให้สั้นขึ้นด้วย `if/else` แบบย่อ (ternary operator)
+นอกจากนั้น ถ้ามีหลายเงื่อนไขก็สามารถ chain กันต่อได้
+
+```cpp
+if (condition_a) {
+  __A;
+} else {
+  if (condition_b) {
+    __B;
+  } else {
+    if (condition_c) {
+      __C;
+    } else {
+      __D;
+    }
+  }
+}
+```
+
+แต่คำสั้งมีคำสั้งเดียว เราสามารถเอา `{}` ออกได้ กลายเป็น
+
+```cpp
+if (condition_a) {
+  __A;
+} else
+  if (condition_b) {
+    __B;
+  } else
+    if (condition_c) {
+      __C;
+    } else {
+      __D;
+    }
+
+จัดบรรทัดใหม่
+if (condition_a) {
+  __A;
+} else if (condition_b) {
+  __B;
+} else if (condition_c) {
+  __C;
+} else {
+  __D;
+}
+```
+
+> สำหรับบางภาษามีการออกแบบ syntax แยกของ `else if` เช่น `python` ใช่ `elif` แทน `else if`
+>
+> ```python
+> if cond_a:
+>   A()
+> elif cond_b:
+>   B()
+> elif cond_c:
+>   C()
+> else:
+>   D()
+> ```
+
+## ทำให้สั้นขึ้นด้วย Short Hand If Else (Ternary Operator)
+
+![ternary operator](https://github.com/krist7599555/ocom/assets/19445033/4300b502-70ae-4256-8aab-93ebd6f5a82b)
 
 ```c
 // oddeven_ternary.c
@@ -93,8 +153,10 @@ int main() {
   int a;
   scanf("%d", &a);
   printf(a % 2 == 0 ? "even\n" : "odd\n");
+// หรือ
+  (a % 2 == 0)
+    ? printf("even\n")
+    : printf("odd\n");
   return 0;
 }
 ```
-
----
