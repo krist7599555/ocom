@@ -1,39 +1,43 @@
-import type { Plugin } from 'vite';
-import type { TransformResult } from 'rollup';
 import FrontMatter from 'gray-matter';
+import type { TransformResult } from 'rollup';
+import type { Plugin } from 'vite';
 
-type PluginOptions = {};
+type PluginOptions = {
+  language?: string;
+  delimiters?: string | [string, string];
+  excerpt_separator?: string;
+};
 
 const _transform = (code: string, id: string, options: PluginOptions): TransformResult => {
-	if (!id.endsWith('.md')) return null;
+  if (!id.endsWith('.md')) return null;
 
-	const fm = FrontMatter(code, {
-		language: 'yaml',
-		delimiters: '---',
-		excerpt_separator: '<!-- more -->'
-	});
-	console.log({ id });
-	const result = [
-		`// vite-plugin-markdown-frontmatter: ${id}`,
-		// `export const id = ${JSON.stringify(id)};`,
-		`export const frontmatter = ${JSON.stringify(fm.data)};`,
-		`export const markdown = ${JSON.stringify(fm.content)};`,
-		`export const markdown_excerpt = ${JSON.stringify(fm.excerpt)};`,
-		// TODO: add toc (table of content)
-		// TODO: add links
-		``
-	];
-	return {
-		code: result.join('\n')
-	};
+  const fm = FrontMatter(code, {
+    language: 'yaml',
+    delimiters: '---',
+    excerpt_separator: '<!-- more -->',
+    ...options,
+  });
+  const result = [
+    `// vite-plugin-markdown-frontmatter: ${id}`,
+    // `export const id = ${JSON.stringify(id)};`,
+    `export const frontmatter = ${JSON.stringify(fm.data)};`,
+    `export const markdown = ${JSON.stringify(fm.content)};`,
+    `export const markdown_excerpt = ${JSON.stringify(fm.excerpt)};`,
+    // TODO: add toc (table of content)
+    // TODO: add links
+    ``,
+  ];
+  return {
+    code: result.join('\n'),
+  };
 };
 
 export const markdown_frontmatter = (options: PluginOptions = {}): Plugin => {
-	return {
-		name: 'vite-plugin-markdown-frontmatter',
-		enforce: 'pre',
-		transform(code, id) {
-			return _transform(code, id, options);
-		}
-	};
+  return {
+    name: 'vite-plugin-markdown-frontmatter',
+    enforce: 'pre',
+    transform(code, id) {
+      return _transform(code, id, options);
+    },
+  };
 };

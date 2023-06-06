@@ -13,19 +13,19 @@
 /* prettier-ignore */
 @layer base {
 
-	html {
-		font-family: 'Noto Sans', 'Noto Sans Thai', 'Sukhumvit Set', Arial, Helvetica, sans-serif;
-	}
-	/* h1 { @apply font-bold text-xl md:text-3xl;}
+  html {
+    font-family: 'Noto Sans', 'Noto Sans Thai', 'Sukhumvit Set', Arial, Helvetica, sans-serif;
+  }
+  /* h1 { @apply font-bold text-xl md:text-3xl;}
   h2 { @apply font-bold text-lg md:text-2xl;}
   h3 { @apply font-bold text-lg md:text-xl;}
   h4 { @apply font-bold text-lg md:text-lg;} */
 }
 
 @layer components {
-	/* .container {
-		width: min(100% - 2rem, 700px);
-		margin-left: auto;
-		margin-right: auto;
-	} */
+  /* .container {
+    width: min(100% - 2rem, 700px);
+    margin-left: auto;
+    margin-right: auto;
+  } */
 }

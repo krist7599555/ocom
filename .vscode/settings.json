@@ -1,9 +1,12 @@
 {
-	"explorer.sortOrder": "type",
-	"explorer.openEditors.sortOrder": "alphabetical",
-	"markdownlint.config": {
-		"no-inline-html": {
-			"allowed_elements": ["br", "img", "i", "sup", "sub"]
-		}
-	}
+  "explorer.sortOrder": "type",
+  "explorer.openEditors.sortOrder": "alphabetical",
+  "markdownlint.config": {
+    "no-inline-html": {
+      "allowed_elements": ["br", "img", "i", "sup", "sub"]
+    }
+  },
+  "prettier.documentSelectors": ["*.svelte", "*.ts", "*.md", "*.css", "*.json"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

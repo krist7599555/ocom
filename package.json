@@ -1,76 +1,82 @@
 {
-	"name": "ocom",
-	"version": "0.0.1",
-	"private": true,
-	"packageManager": "pnpm@8.6.1",
-	"scripts": {
-		"dev": "wireit",
-		"build": "wireit",
-		"preview": "wireit",
-		"check": "wireit",
-		"check:watch": "wireit",
-		"lint": "wireit",
-		"format": "wireit"
-	},
-	"wireit": {
-		"dev": {
-			"command": "vite dev"
-		},
-		"build": {
-			"command": "vite build"
-		},
-		"preview": {
-			"command": "vite preview"
-		},
-		"check": {
-			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
-		},
-		"check:watch": {
-			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-		},
-		"lint": {
-			"command": "prettier --plugin-search-dir . --check . && eslint ."
-		},
-		"format": {
-			"command": "prettier --plugin-search-dir . --write ."
-		}
-	},
-	"devDependencies": {
-		"@fontsource/noto-sans": "^5.0.2",
-		"@fontsource/noto-sans-thai": "^5.0.2",
-		"@krist7599555/lodosh": "^1.5.0",
-		"@markdoc/markdoc": "^0.3.0",
-		"@steeze-ui/heroicons": "^2.2.2",
-		"@steeze-ui/lucide-icons": "^1.0.0",
-		"@steeze-ui/svelte-icon": "^1.3.2",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/adapter-static": "^2.0.2",
-		"@sveltejs/kit": "^1.5.0",
-		"@tailwindcss/typography": "^0.5.9",
-		"@typescript-eslint/eslint-plugin": "^5.45.0",
-		"@typescript-eslint/parser": "^5.45.0",
-		"autoprefixer": "^10.4.14",
-		"eslint": "^8.28.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-svelte": "^2.26.0",
-		"gray-matter": "^4.0.3",
-		"pnpm": "^8.6.1",
-		"prettier": "^2.8.0",
-		"prettier-plugin-md-nocjsp": "^1.5.1",
-		"prettier-plugin-svelte": "^2.8.1",
-		"prism-themes": "^1.9.0",
-		"rollup": "^3.23.1",
-		"svelte": "^3.54.0",
-		"svelte-check": "^3.0.1",
-		"sveltejs-markdoc": "^0.2.0",
-		"tailwindcss": "^3.3.2",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.3.9",
-		"wireit": "^0.9.5"
-	},
-	"type": "module",
-	"dependencies": {
-		"prismjs": "^1.29.0"
-	}
+  "name": "ocom",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@8.6.1",
+  "scripts": {
+    "dev": "wireit",
+    "build": "wireit",
+    "preview": "wireit",
+    "check": "wireit",
+    "check:watch": "wireit",
+    "lint": "wireit",
+    "format": "wireit"
+  },
+  "wireit": {
+    "dev": {
+      "command": "vite dev"
+    },
+    "build": {
+      "command": "vite build"
+    },
+    "preview": {
+      "command": "vite preview"
+    },
+    "check": {
+      "command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+    },
+    "check:watch": {
+      "command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    },
+    "lint": {
+      "command": "prettier --plugin-search-dir . --check . && eslint . --fix",
+      "dependencies": [
+        "format"
+      ]
+    },
+    "format": {
+      "command": "prettier --plugin-search-dir . --write ."
+    }
+  },
+  "devDependencies": {
+    "@fontsource/noto-sans": "^5.0.2",
+    "@fontsource/noto-sans-thai": "^5.0.2",
+    "@krist7599555/lodosh": "^1.5.0",
+    "@markdoc/markdoc": "^0.3.0",
+    "@steeze-ui/heroicons": "^2.2.2",
+    "@steeze-ui/lucide-icons": "^1.0.0",
+    "@steeze-ui/svelte-icon": "^1.3.2",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/adapter-static": "^2.0.2",
+    "@sveltejs/kit": "^1.5.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/prismjs": "^1.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-svelte": "^2.26.0",
+    "gray-matter": "^4.0.3",
+    "pnpm": "^8.6.1",
+    "prettier": "^2.8.0",
+    "prettier-plugin-md-nocjsp": "^1.5.1",
+    "prettier-plugin-svelte": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prism-themes": "^1.9.0",
+    "rollup": "^3.23.1",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "sveltejs-markdoc": "^0.2.0",
+    "tailwindcss": "^3.3.2",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.3.9",
+    "wireit": "^0.9.5"
+  },
+  "type": "module",
+  "dependencies": {
+    "prismjs": "^1.29.0"
+  }
 }
