@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['src/**/*.{svelte,ts}'],
+  content: ['src/**/*.{svelte,ts}', 'docs/**/*.{svelte,ts,md}'],
   theme: {
     extend: {
       // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js

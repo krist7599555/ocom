@@ -1,5 +1,6 @@
 ---
 title: Basic Program 4. "Fibonucci"
+description: เรียนรู้การทำงานแบบ วน loop (while/for)
 ---
 
 เรียนรู้การ loop

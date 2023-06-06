@@ -1,5 +1,6 @@
 ---
 title: Basic Program 2. "Sum"
+description: เรียนรู้การทำงานแบบ ตามลำดับ (sequence)
 ---
 
 เรียนรู้กราทำงานตามลำดับ จากโจทย์คือ

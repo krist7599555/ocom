@@ -1,5 +1,6 @@
 ---
 title: Basic Problem 5. "Insert Sort"
+description: เรียนรู้ algorithm พื้นฐาน insert sort
 ---
 
 เรียนรู้ algorithm เบื่องต้น

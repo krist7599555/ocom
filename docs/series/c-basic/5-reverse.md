@@ -1,5 +1,6 @@
 ---
 title: Basic Problem 5. "Reverse Sentence"
+description: เรียนรู้การใช้ array ในการเก็บค่า
 ---
 
 เรียนรู้ array

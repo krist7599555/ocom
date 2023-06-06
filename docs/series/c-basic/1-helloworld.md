@@ -1,5 +1,6 @@
 ---
 title: Basic Program 1. "Hello World!"
+description: เรียนรู้การแสดง input และ run program
 ---
 
 ```c

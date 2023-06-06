@@ -1,5 +1,6 @@
 ---
 title: Basic Program 3. "Odd Even"
+description: เรียนรู้การทำงานตามเงื่อนไข if/else (branch)
 ---
 
 เรียนรู้่ Condition (เงื่อนไขและทางเลือก)
