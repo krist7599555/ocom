@@ -1,7 +1,7 @@
 <script lang="ts">
 export let data: PageData;
 
-import { ChevronLeft, Github } from '@steeze-ui/lucide-icons';
+import { ChevronRight, Edit3, Menu } from '@steeze-ui/lucide-icons';
 import type { ComponentType } from 'svelte';
 
 import { browser } from '$app/environment';
@@ -13,6 +13,8 @@ import Markdoc from '$lib/markdoc-svelte/Markdoc.svelte';
 import type { PageData } from './$types';
 import Ref from '$lib/markdoc-component/Ref.svelte';
 import type { Config } from '@markdoc/markdoc';
+import { Icon } from '@steeze-ui/svelte-icon';
+
 
 const components = new Map<string, ComponentType>([
   ['Callout', Callout],
@@ -65,18 +67,30 @@ const config: Config = {
 </script>
 
 <div class="bg-orange-600 text-white">
-  <div class="prose prose-invert pb-8 pt-6">
-    <div class="flex gap-2">
-      <Button href="/" class="mb-3 inline-block" icon={ChevronLeft}>ย้อนกลับ</Button>
-      <Button href={data.github_link} class="mb-3 inline-block" icon={Github}>แก้ไขหน้านี้</Button>
-    </div>
-
-    <h1 class="mt-6 text-white">
+  <div class="prose prose-invert pb-10 pt-12">
+    <h1 class=" text-white">
       {data.title}
     </h1>
   </div>
 </div>
 
+<div class="border-b">
+
+  <div class="prose flex justify-start gap-x-2 items-center py-2 [&_a]:text-orange-500 [&_a]:text-sm flex-wrap">
+    <a href="/">
+      <Icon src={Menu} class="w-4 inline" />
+    </a>  
+    {#each data.path_segments as seg, i}
+    <Icon src={ChevronRight} class="w-6 opacity-30" /> <a href="/docs/{data.path_segments.map(it => it.token).slice(0, i + 1).join('/')}">{seg.token}</a> 
+    {/each}
+
+    <a href="{data.github_link}" class="w-fit md:ml-auto hidden md:inline-block">
+      <Icon src={Edit3} class="w-4 inline" />
+      แก้ไขหน้านี้
+    </a>
+  </div>
+</div>
+
 <div class="prose py-12">
-  <Markdoc doc={data.content} {config} {components} />
+  <Markdoc doc={data.content.trim() || "ไม่มีเนื้อหา..."} {config} {components} />
 </div>

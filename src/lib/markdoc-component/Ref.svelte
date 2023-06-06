@@ -38,22 +38,22 @@ const hash = Math.abs(sdbm_hash(path))
 </script>
 
 
-<div class="rounded-lg overflow-hidden border bg-slate-100/50 grid grid-cols-[auto,1fr] not-prose gap-3 md:gap-7 my-4 max-w-[58ch] mx-auto not-prose">
-  <a href={doc.path_id} class="block w-[7rem] h-[5rem] md:w-[12rem] md:h-[7rem] overflow-hidden">
+<a href="{doc.path_id}" class="rounded-lg no-underline overflow-hidden hover:border-orange-400 border bg-slate-100/50 group hover:bg-orange-100 grid grid-cols-[auto,1fr] not-prose gap-3 md:gap-7 my-4 max-w-[58ch] not-prose">
+  <div class="block w-[7rem] h-[5rem] md:w-[12rem] md:h-[7rem] overflow-hidden">
     {#if doc.frontmatter?.og_image}
       <img src="{doc.frontmatter?.og_image}" alt="og">
     {:else}
     <!-- prettier-ignore -->
-      <div class="_docs_ref_image w-full h-full" data-hash={hash} data-preset={(hash * 13) % 5 + 1}></div>
+      <div class="_docs_ref_image w-full h-full group-hover:scale-125 transition-transform duration-300 ease-out" data-hash={hash} data-preset={(hash * 13) % 5 + 1}></div>
     {/if}
-  </a>
+  </div>
   <div class="flex flex-col py-4">
     <p class="text-[0.6rem] opacity-60">reference <Icon class="h-[0.9em] inline w-fit" src={ArrowRight} /> </p>
-    <a href={doc.path_id} class="font-bold underline md:text-lg hover:text-orange-500">{doc.title}</a>
+    <p class="font-bold underline md:text-lg group-hover:text-orange-500">{doc.title}</p>
     <p class="text-xs mt-1 mb-2">{doc.description}</p>
     <!-- <Button href={doc.path_id} class="text-xs mt-auto">อ่านเพิ่มเติม</Button> -->
   </div>
-</div>
+</a>
 
 <style>
 :global(._docs_ref_image) { 
