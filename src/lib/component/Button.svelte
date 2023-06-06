@@ -15,7 +15,7 @@ export { className as class };
   this={href ? 'a' : 'button'}
   on:click
   {href}
-  class="flex w-fit items-center justify-center rounded bg-red-600 px-5 py-2 text-white no-underline {className}"
+  class="flex w-fit items-center justify-center rounded-lg bg-[#e01700] px-5 py-2 text-white no-underline {className}"
   {...$$restProps}
 >
   {#if icon}

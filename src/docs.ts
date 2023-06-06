@@ -6,7 +6,7 @@ export const STATIC_DOCS = pipe(
   to_entries,
   arr_map(([path, raw]) => {
     const path_segments = pipe(
-      path.replace('.md', ''),
+      path.replace('/index.md', '').replace('.md', ''),
       it => it.split('/docs/')[1],
       it => it.split('/'),
       arr_map((tok): { order: number | null; token: string } => {
@@ -26,7 +26,7 @@ export const STATIC_DOCS = pipe(
       '/docs/' +
       path_segments
         .map(it => it.token)
-        .filter(it => it != 'general')
+        .filter(it => it != 'index')
         .join('/');
     return {
       github_link:
@@ -34,6 +34,8 @@ export const STATIC_DOCS = pipe(
       markdown_file_path: new URL(path, import.meta.url).href,
       frontmatter: raw.frontmatter,
       title: raw.frontmatter?.title || path_id.split('/docs/')[1].replace('/', ' - '),
+      description: raw.frontmatter?.description || '',
+      tags: (raw.frontmatter?.tags as string[]) || [],
       content: raw.markdown,
       content_excerpt: raw.markdown_excerpt,
       path_segments,

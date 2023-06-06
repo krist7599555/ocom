@@ -9,7 +9,11 @@ export default defineConfig({
     sveltekit(),
     //
   ],
-
+  server: {
+    fs: {
+      allow: ['src', 'docs'],
+    },
+  },
   optimizeDeps: {
     include: ['prismjs', '@markdoc/markdoc'],
     force: true,

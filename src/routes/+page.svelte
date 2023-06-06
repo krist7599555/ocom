@@ -21,19 +21,15 @@ console.log(data.commits)
 
 <section class="prose mt-12">
   <div>
-    <Button href="https://github.com/krist7599555/ocom/tree/master/docs" icon={Github}>
-      <!-- prettier-ignore -->
-      <svg slot="icon" class="lucide lucide-github mr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-        <path d="M9 18c-4.51 2-5-2-7-2"/>
-      </svg>
+    <Button href="https://github.com/krist7599555/ocom/tree/master/docs">
+      <Icon slot="icon" class="w-6 mr-2" src={Github} />
       ช่วยกันเขียนใน Github
     </Button>
   </div>
   <div class="divide-y text-slate-500 not-prose rounded-xl mt-2 border overflow-hidden hover:border-orange-200 hover:bg-orange-100/30 hover:divide-transparent">
     {#each data.commits as c}
       <a href={c.commit_url} class='flex items-center justify-between p-2 text-xs hover:bg-orange-100 cursor-pointer no-underline'>
-        <div><Icon class="text-green-500 inline w-4" src={GitCommit} /> {c.commit_message}</div>
+        <div><Icon class="text-blue-500 inline w-4" src={GitCommit} /> {c.commit_message}</div>
         <div>{Intl.DateTimeFormat('th', { dateStyle: 'medium' }).format(c.commit_date)}</div>
       </a>
     {/each}

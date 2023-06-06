@@ -11,13 +11,16 @@ import Prism from '$lib/markdoc-component/Prism.svelte';
 import Markdoc from '$lib/markdoc-svelte/Markdoc.svelte';
 
 import type { PageData } from './$types';
+import Ref from '$lib/markdoc-component/Ref.svelte';
+import type { Config } from '@markdoc/markdoc';
 
 const components = new Map<string, ComponentType>([
   ['Callout', Callout],
   ['Prism', Prism],
+  ['Ref', Ref],
 ]);
 
-const config = {
+const config: Config = {
   variables: {
     frontmatter: data.frontmatter,
   },
@@ -44,6 +47,19 @@ const config = {
         },
       },
     },
+    ref: {
+      render: 'Ref',
+      description: 'Display @docs/ reference',
+      // children: ['paragraph', 'tag', 'list'],
+      attributes: {
+        path: {
+          type: String,
+          required: true,
+          // default: 'note',
+          // matches: ['check', 'error', 'note', 'warning'],
+        },
+      }, 
+    }
   },
 };
 </script>

@@ -3,8 +3,10 @@
 /* @import url('prism-themes/themes/prism-one-dark.css'); */
 /* @import url('prism-themes/themes/prism-xonokai.css'); */
 /* @import url('prism-themes/themes/prism-nord.css'); */
-@import url('@fontsource/noto-sans');
-@import url('@fontsource/noto-sans-thai');
+@import url('@fontsource/noto-sans/400.css');
+@import url('@fontsource/noto-sans/700.css');
+@import url('@fontsource/noto-sans-thai/400.css');
+@import url('@fontsource/noto-sans-thai/700.css');
 @import url('prism-themes/themes/prism-one-light.css');
 @tailwind base;
 @tailwind components;
