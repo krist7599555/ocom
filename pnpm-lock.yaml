@@ -8,6 +8,9 @@ dependencies:
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
+  ts-async-pipe:
+    specifier: ^1.1.0
+    version: 1.1.0
 
 devDependencies:
   '@fontsource/noto-sans':
@@ -2353,6 +2356,10 @@ packages:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
     dev: true
+
+  /ts-async-pipe@1.1.0:
+    resolution: {integrity: sha512-oIxwNMytMcSlARkskWlSeLbf09or/W1ER4T8Wcxu1N3ALulZxfmlQrAvRnfAcrSDTQPsMjdkm4K7GI1w4MJ31A==}
+    dev: false
 
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}

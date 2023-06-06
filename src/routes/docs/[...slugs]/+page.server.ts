@@ -1,5 +1,7 @@
 import { error } from '@sveltejs/kit';
+
 import { STATIC_DOCS } from '$docs';
+
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ url }) => {
