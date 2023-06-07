@@ -2,6 +2,7 @@
 // for information about these interfaces
 
 import './lib/vite-plugin-markdown-frontmatter-ambient';
+
 declare global {
   namespace App {
     // Interface Error {}

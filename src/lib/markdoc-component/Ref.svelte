@@ -5,6 +5,7 @@ import { ArrowRight } from '@steeze-ui/lucide-icons';
 import { Icon } from '@steeze-ui/svelte-icon';
 
 import { STATIC_DOCS } from '$docs';
+
 export let path: string;
 
 if (!path.startsWith('@docs/')) {

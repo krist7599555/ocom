@@ -1,5 +1,6 @@
 <script lang="ts">
 import Prism from 'prismjs';
+
 Prism.manual = true;
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';

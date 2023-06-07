@@ -7,6 +7,7 @@ module.exports = defineConfig({
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:svelte/recommended',
+    'plugin:tailwindcss/recommended',
     'prettier',
     'xo/browser',
   ],
@@ -32,6 +33,15 @@ module.exports = defineConfig({
     },
   ],
   rules: {
+    // 'import/resolver': {
+    //   'eslint-import-resolver-custom-alias': {
+    //     alias: {
+    //       $docs: './src/docs.ts',
+    //       $lib: './src/lib',
+    //     },
+    //     extensions: ['.ts', '.svelte'],
+    //   },
+    // },
     'svelte/no-at-html-tags': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -79,4 +89,5 @@ module.exports = defineConfig({
     'yield-star-spacing': ['error', 'after'],
     camelcase: ['off'],
   },
+  settings: {},
 });
