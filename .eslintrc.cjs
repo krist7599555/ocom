@@ -58,7 +58,10 @@ module.exports = defineConfig({
     'semi-spacing': ['error', { before: false, after: true }],
     'semi-style': ['error', 'last'],
     'space-before-blocks': 'error',
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': [
+      'error',
+      { anonymous: 'never', named: 'never', asyncArrow: 'always' },
+    ],
     'space-infix-ops': 'error',
     'template-curly-spacing': 'error',
     'wrap-iife': ['error', 'outside'],

@@ -19,7 +19,7 @@ function github_latest_commit() {
   );
 }
 
-export const load = (async() => ({
+export const load = (async () => ({
   commits: github_latest_commit(),
   docs: STATIC_DOCS.map(it => ({
     path_id: it.path_id,

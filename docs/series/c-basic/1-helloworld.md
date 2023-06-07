@@ -71,10 +71,8 @@ extern int printf( const char *, __gnuc_va_list );
    >
    > - `#include <ของมาตรฐาน>`
    > - `#include "ของเขียนเอง"`
-   >
 1. > - ภาษา c ใช้โคดเป็น `.c` ใช้ headerเป็น `.h`
    > - ภาษา cpp ใช้โคดเป็น `.cpp` ใช้ headerเป็น `.hpp`
-   >
 1. > เมื่อใช้ภาษา cpp ที่มี function ใหม่กว่า เขาเลยสร้าง include ใหม่ให้เป็นระบบมากขึ้น ตาม [C library](https://cplusplus.com/reference/clibrary). แต่ก็ยังใช้ #include แบบเก่าได้อยู่
    > |c|cpp|function ทีใช้บ่อย|
    > |-|-|-|
