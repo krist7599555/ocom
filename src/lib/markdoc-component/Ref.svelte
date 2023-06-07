@@ -1,23 +1,26 @@
-<svelte:options immutable></svelte:options>
+<svelte:options immutable />
 
 <script lang="ts">
-import { STATIC_DOCS } from "$docs"
-import Button from "$lib/component/Button.svelte";
-import { ArrowRight } from "@steeze-ui/lucide-icons";
-import { Icon } from "@steeze-ui/svelte-icon";
-export let path: string
+import { ArrowRight } from '@steeze-ui/lucide-icons';
+import { Icon } from '@steeze-ui/svelte-icon';
 
-if (!path.startsWith("@docs/")) {
-  throw new Error(`{% ref path="@doc/" } path must start with @docs/ but got ${path}`)
+import { STATIC_DOCS } from '$docs';
+import Button from '$lib/component/Button.svelte';
+export let path: string;
+
+if (!path.startsWith('@docs/')) {
+  throw new Error(`{% ref path="@doc/" } path must start with @docs/ but got ${path}`);
 }
 
 const path2 = path.replace('@docs/', '/docs/').replace('.md', '');
-const doc = STATIC_DOCS.find(it => it.path_id == path.replace('@docs/', '/docs/').replace('.md', ''))
+const doc = STATIC_DOCS.find(
+  it => it.path_id == path.replace('@docs/', '/docs/').replace('.md', '')
+);
 
-const rand = Math.floor(Math.random() * 5)
+const rand = Math.floor(Math.random() * 5);
 
 if (!doc) {
-  throw new Error(`not found docs path ${path} ${path2}`)
+  throw new Error(`not found docs path ${path} ${path2}`);
 }
 
 // http://www.cse.yorku.ca/~oz/hash.html
@@ -25,38 +28,37 @@ const sdbm_hash = (str: string): number => {
   let arr = str.split('');
   return arr.reduce(
     (hashCode: number, currentVal: string) =>
-      (hashCode =
-        currentVal.charCodeAt(0) +
-        (hashCode << 6) +
-        (hashCode << 16) -
-        hashCode),
+      (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
     0
   );
 };
-const hash = Math.abs(sdbm_hash(path))
-
+const hash = Math.abs(sdbm_hash(path));
 </script>
 
-
-<a href="{doc.path_id}" class="rounded-lg no-underline overflow-hidden hover:border-orange-400 border bg-slate-100/50 group hover:bg-orange-100 grid grid-cols-[auto,1fr] not-prose gap-3 md:gap-7 my-4 max-w-[58ch] not-prose">
-  <div class="block w-[7rem] h-[5rem] md:w-[12rem] md:h-[7rem] overflow-hidden">
+<a
+  href={doc.path_id}
+  class="not-prose not-prose group my-4 grid max-w-[58ch] grid-cols-[auto,1fr] gap-3 overflow-hidden rounded-lg border bg-slate-100/50 no-underline hover:border-orange-400 hover:bg-orange-100 md:gap-7"
+>
+  <div class="block h-[5rem] w-[7rem] overflow-hidden md:h-[7rem] md:w-[12rem]">
     {#if doc.frontmatter?.og_image}
-      <img src="{doc.frontmatter?.og_image}" alt="og">
+      <img src={doc.frontmatter?.og_image} alt="og" />
     {:else}
-    <!-- prettier-ignore -->
+      <!-- prettier-ignore -->
       <div class="_docs_ref_image w-full h-full group-hover:scale-125 transition-transform duration-300 ease-out" data-hash={hash} data-preset={(hash * 13) % 5 + 1}></div>
     {/if}
   </div>
   <div class="flex flex-col py-4">
-    <p class="text-[0.6rem] opacity-60">reference <Icon class="h-[0.9em] inline w-fit" src={ArrowRight} /> </p>
-    <p class="font-bold underline md:text-lg group-hover:text-orange-500">{doc.title}</p>
-    <p class="text-xs mt-1 mb-2">{doc.description}</p>
+    <p class="text-[0.6rem] opacity-60">
+      reference <Icon class="inline h-[0.9em] w-fit" src={ArrowRight} />
+    </p>
+    <p class="font-bold underline group-hover:text-orange-500 md:text-lg">{doc.title}</p>
+    <p class="mb-2 mt-1 text-xs">{doc.description}</p>
     <!-- <Button href={doc.path_id} class="text-xs mt-auto">อ่านเพิ่มเติม</Button> -->
   </div>
 </a>
 
 <style>
-:global(._docs_ref_image) { 
+:global(._docs_ref_image) {
   background-size: 40px;
   background-color: #ee5522;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23d23d09' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");

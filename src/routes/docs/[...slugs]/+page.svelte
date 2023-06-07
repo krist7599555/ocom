@@ -1,20 +1,19 @@
 <script lang="ts">
 export let data: PageData;
 
+import type { Config } from '@markdoc/markdoc';
 import { ChevronRight, Edit3, Menu } from '@steeze-ui/lucide-icons';
+import { Icon } from '@steeze-ui/svelte-icon';
 import type { ComponentType } from 'svelte';
 
 import { browser } from '$app/environment';
 import Button from '$lib/component/Button.svelte';
 import Callout from '$lib/markdoc-component/Callout.svelte';
 import Prism from '$lib/markdoc-component/Prism.svelte';
+import Ref from '$lib/markdoc-component/Ref.svelte';
 import Markdoc from '$lib/markdoc-svelte/Markdoc.svelte';
 
 import type { PageData } from './$types';
-import Ref from '$lib/markdoc-component/Ref.svelte';
-import type { Config } from '@markdoc/markdoc';
-import { Icon } from '@steeze-ui/svelte-icon';
-
 
 const components = new Map<string, ComponentType>([
   ['Callout', Callout],
@@ -51,6 +50,7 @@ const config: Config = {
     },
     ref: {
       render: 'Ref',
+
       description: 'Display @docs/ reference',
       // children: ['paragraph', 'tag', 'list'],
       attributes: {
@@ -60,8 +60,8 @@ const config: Config = {
           // default: 'note',
           // matches: ['check', 'error', 'note', 'warning'],
         },
-      }, 
-    }
+      },
+    },
   },
 };
 </script>
@@ -75,22 +75,29 @@ const config: Config = {
 </div>
 
 <div class="border-b">
-
-  <div class="prose flex justify-start gap-x-2 items-center py-2 [&_a]:text-orange-500 [&_a]:text-sm flex-wrap">
+  <div
+    class="prose flex flex-wrap items-center justify-start gap-x-2 py-2 [&_a]:text-sm [&_a]:text-orange-500"
+  >
     <a href="/">
-      <Icon src={Menu} class="w-4 inline" />
-    </a>  
+      <Icon src={Menu} class="inline w-4" />
+    </a>
     {#each data.path_segments as seg, i}
-    <Icon src={ChevronRight} class="w-6 opacity-30" /> <a href="/docs/{data.path_segments.map(it => it.token).slice(0, i + 1).join('/')}">{seg.token}</a> 
+      <Icon src={ChevronRight} class="w-6 opacity-30" />
+      <a
+        href="/docs/{data.path_segments
+          .map(it => it.token)
+          .slice(0, i + 1)
+          .join('/')}">{seg.token}</a
+      >
     {/each}
 
-    <a href="{data.github_link}" class="w-fit md:ml-auto hidden md:inline-block">
-      <Icon src={Edit3} class="w-4 inline" />
+    <a href={data.github_link} class="hidden w-fit md:ml-auto md:inline-block">
+      <Icon src={Edit3} class="inline w-4" />
       แก้ไขหน้านี้
     </a>
   </div>
 </div>
 
 <div class="prose py-12">
-  <Markdoc doc={data.content.trim() || "ไม่มีเนื้อหา..."} {config} {components} />
+  <Markdoc doc={data.content.trim() || 'ไม่มีเนื้อหา...'} {config} {components} />
 </div>
