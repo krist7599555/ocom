@@ -13,24 +13,24 @@ export const STATIC_DOCS = pipe(
         const res = /^(\d)-(.+)$/.exec(tok);
         return res
           ? {
-              order: +res[1],
-              token: res[2],
-            }
+            order: Number(res[1]),
+            token: res[2],
+          }
           : {
-              order: null,
-              token: tok,
-            };
-      })
+            order: null,
+            token: tok,
+          };
+      }),
     );
-    const path_id =
-      '/docs/' +
-      path_segments
+    const path_id
+      = '/docs/'
+      + path_segments
         .map(it => it.token)
-        .filter(it => it != 'index')
+        .filter(it => it !== 'index')
         .join('/');
     return {
       github_link:
-        `https://github.com/krist7599555/ocom/blob/master/docs/` + path.split('/docs/')[1],
+        'https://github.com/krist7599555/ocom/blob/master/docs/' + path.split('/docs/')[1],
       markdown_file_path: new URL(path, import.meta.url).href,
       frontmatter: raw.frontmatter,
       title: raw.frontmatter?.title || path_id.split('/docs/')[1].replace('/', ' - '),
@@ -41,5 +41,5 @@ export const STATIC_DOCS = pipe(
       path_segments,
       path_id,
     };
-  })
+  }),
 );

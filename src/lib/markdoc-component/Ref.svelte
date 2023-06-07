@@ -5,7 +5,6 @@ import { ArrowRight } from '@steeze-ui/lucide-icons';
 import { Icon } from '@steeze-ui/svelte-icon';
 
 import { STATIC_DOCS } from '$docs';
-import Button from '$lib/component/Button.svelte';
 export let path: string;
 
 if (!path.startsWith('@docs/')) {
@@ -14,10 +13,8 @@ if (!path.startsWith('@docs/')) {
 
 const path2 = path.replace('@docs/', '/docs/').replace('.md', '');
 const doc = STATIC_DOCS.find(
-  it => it.path_id == path.replace('@docs/', '/docs/').replace('.md', '')
+  it => it.path_id === path.replace('@docs/', '/docs/').replace('.md', ''),
 );
-
-const rand = Math.floor(Math.random() * 5);
 
 if (!doc) {
   throw new Error(`not found docs path ${path} ${path2}`);
@@ -25,11 +22,12 @@ if (!doc) {
 
 // http://www.cse.yorku.ca/~oz/hash.html
 const sdbm_hash = (str: string): number => {
-  let arr = str.split('');
+  const arr = str.split('');
   return arr.reduce(
     (hashCode: number, currentVal: string) =>
-      (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
-    0
+      // eslint-disable-next-line no-bitwise
+      currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode,
+    0,
   );
 };
 const hash = Math.abs(sdbm_hash(path));
@@ -44,7 +42,7 @@ const hash = Math.abs(sdbm_hash(path));
       <img src={doc.frontmatter?.og_image} alt="og" />
     {:else}
       <!-- prettier-ignore -->
-      <div class="_docs_ref_image w-full h-full group-hover:scale-125 transition-transform duration-300 ease-out" data-hash={hash} data-preset={(hash * 13) % 5 + 1}></div>
+      <div class="_docs_ref_image w-full h-full group-hover:scale-125 transition-transform duration-300 ease-out" data-hash={hash} data-preset={((hash * 13) % 5) + 1}></div>
     {/if}
   </div>
   <div class="flex flex-col py-4">

@@ -22,17 +22,17 @@ export default {
               paddingBottom: '0.5rem',
             },
             'code::before': {
-              content: 'none', // don’t generate the pseudo-element
+              content: 'none', // Don’t generate the pseudo-element
               //                content: '""', // this is an alternative: generate pseudo element using an empty string
             },
             'code::after': {
               content: 'none',
             },
             'code, a > code': {
-              // color: 'red',
+              // Color: 'red',
               backgroundColor: theme('colors.slate[200]'),
               borderRadius: '5px',
-              padding: `2px 8px`,
+              padding: '2px 8px',
             },
           },
         },

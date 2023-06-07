@@ -10,7 +10,7 @@
   "[javascript][html][typescript][markdown][json][svelte]": {
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[markdown]": {
     "editor.unicodeHighlight.ambiguousCharacters": true,
@@ -22,5 +22,24 @@
       "strings": "on",
       "other": "on"
     }
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.format.enable": true,
+  "eslint.enable": true,
+  "eslint.probe": ["svelte", "css", "json", "javascript", "typescript", "markdown", "html"],
+  "eslint.packageManager": "pnpm",
+  "eslint.options": {
+    "overrideConfigFile": "./.eslintrc.cjs"
+  },
+  "eslint.validate": ["svelte", "css", "json", "javascript", "typescript", "markdown", "html"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll": true
+  },
+  "eslint.debug": true,
+  "eslint.execArgv": [],
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.run": "onSave",
+  "editor.formatOnSaveMode": "file",
+  "svelte.plugin.svelte.format.enable": false
 }

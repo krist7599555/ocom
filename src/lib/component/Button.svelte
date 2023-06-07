@@ -1,7 +1,4 @@
 <script lang="ts">
-//import icon component
-//import as many icons from a Icon Pack
-import { ChevronLeft } from '@steeze-ui/heroicons';
 import { Icon } from '@steeze-ui/svelte-icon';
 import type { IconSource } from '@steeze-ui/svelte-icon/types';
 

@@ -1,13 +1,17 @@
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   root: true,
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:svelte/recommended',
     'prettier',
+    'xo/browser',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'json-format'],
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2020,
@@ -33,5 +37,32 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'no-multi-spaces': 'error',
+    'array-bracket-spacing': ['error', 'never'],
+    'object-curly-newline': ['error', { consistent: true }],
+    'arrow-body-style': ['error', 'as-needed'],
+    curly: 'warn',
+    // Eqeqeq: 'error',
+    'arrow-spacing': 'error',
+    'block-spacing': 'error',
+    'computed-property-spacing': ['error', 'never'],
+    'eol-last': ['error', 'always'],
+    'func-call-spacing': ['error', 'never'],
+    indent: ['error', 2],
+    'key-spacing': ['error', { mode: 'strict' }],
+    'object-curly-spacing': ['error', 'always'],
+    'no-multiple-empty-lines': 'error',
+    'operator-linebreak': ['error', 'before'],
+    quotes: ['error', 'single', { avoidEscape: true }],
+    'rest-spread-spacing': ['error', 'never'],
+    'semi-spacing': ['error', { before: false, after: true }],
+    'semi-style': ['error', 'last'],
+    'space-before-blocks': 'error',
+    'space-before-function-paren': ['error', 'never'],
+    'space-infix-ops': 'error',
+    'template-curly-spacing': 'error',
+    'wrap-iife': ['error', 'outside'],
+    'yield-star-spacing': ['error', 'after'],
+    camelcase: ['off'],
   },
-};
+});

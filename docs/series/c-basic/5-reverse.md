@@ -247,7 +247,7 @@ function [`strlen` <https://cplusplus.com/reference/cstring/strlen>](https://cpl
 // มีใน #include <string.h> เหมือนกัน
 int strlen(char* c) {
   int i = 0;
-  while (c[i] != '\0') i += 1;
+  while (c[i] !== '\0') i += 1;
   return i;
 }
 

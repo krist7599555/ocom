@@ -8,7 +8,7 @@ export let components = new Map<string, ComponentType>();
 </script>
 
 {#each children as child}
-  {#if typeof child == 'object' && Markdoc.Tag.isTag(child)}
+  {#if typeof child === 'object' && Markdoc.Tag.isTag(child)}
     {@const match_component = components.get(child.name)}
     {#if match_component}
       <svelte:component this={match_component} {...child.attributes} children={child.children}

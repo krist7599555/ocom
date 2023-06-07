@@ -2,7 +2,9 @@
 /** @type {"check"} */
 export let type;
 
-if (type != 'check') console.warn('Callout.svelte only supports type: check');
+if (type !== 'check') {
+  console.warn('Callout.svelte only supports type: check');
+}
 </script>
 
 <div class="callout {type}">

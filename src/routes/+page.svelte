@@ -35,6 +35,7 @@ console.log(data.commits);
         class="flex cursor-pointer items-center justify-between p-2 text-xs no-underline hover:bg-orange-100"
       >
         <div><Icon class="inline w-4 text-blue-500" src={GitCommit} /> {c.commit_message}</div>
+        <!-- eslint-disable-next-line new-cap -->
         <div>{Intl.DateTimeFormat('th', { dateStyle: 'medium' }).format(c.commit_date)}</div>
       </a>
     {/each}

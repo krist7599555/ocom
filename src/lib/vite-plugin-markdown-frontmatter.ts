@@ -1,4 +1,4 @@
-import FrontMatter from 'gray-matter';
+import frontmatter from 'gray-matter';
 import type { TransformResult } from 'rollup';
 import type { Plugin } from 'vite';
 
@@ -9,9 +9,11 @@ type PluginOptions = {
 };
 
 const _transform = (code: string, id: string, options: PluginOptions): TransformResult => {
-  if (!id.endsWith('.md')) return null;
+  if (!id.endsWith('.md')) {
+    return null;
+  }
 
-  const fm = FrontMatter(code, {
+  const fm = frontmatter(code, {
     language: 'yaml',
     delimiters: '---',
     excerpt_separator: '<!-- more -->',
@@ -25,19 +27,17 @@ const _transform = (code: string, id: string, options: PluginOptions): Transform
     `export const markdown_excerpt = ${JSON.stringify(fm.excerpt)};`,
     // TODO: add toc (table of content)
     // TODO: add links
-    ``,
+    '',
   ];
   return {
     code: result.join('\n'),
   };
 };
 
-export const markdown_frontmatter = (options: PluginOptions = {}): Plugin => {
-  return {
-    name: 'vite-plugin-markdown-frontmatter',
-    enforce: 'pre',
-    transform(code, id) {
-      return _transform(code, id, options);
-    },
-  };
-};
+export const markdown_frontmatter = (options: PluginOptions = {}): Plugin => ({
+  name: 'vite-plugin-markdown-frontmatter',
+  enforce: 'pre',
+  transform(code, id) {
+    return _transform(code, id, options);
+  },
+});

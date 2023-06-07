@@ -15,20 +15,18 @@ function github_latest_commit() {
       commit_url: it.html_url,
       author_image: it.author.avatar_url as string,
       author_name: it.author.id as string,
-    }))
+    })),
   );
 }
 
-export const load = (async () => {
-  return {
-    commits: github_latest_commit(),
-    docs: STATIC_DOCS.map(it => ({
-      path_id: it.path_id,
-      path_segment: it.path_segments,
-      title: it.frontmatter?.title || it.path_id.replace('/', ' - '),
-    })),
-  };
-}) satisfies PageServerLoad;
+export const load = (async() => ({
+  commits: github_latest_commit(),
+  docs: STATIC_DOCS.map(it => ({
+    path_id: it.path_id,
+    path_segment: it.path_segments,
+    title: it.frontmatter?.title || it.path_id.replace('/', ' - '),
+  })),
+})) satisfies PageServerLoad;
 
 export const prerender = true;
 export const ssr = true;

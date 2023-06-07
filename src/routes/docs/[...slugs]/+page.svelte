@@ -6,8 +6,6 @@ import { ChevronRight, Edit3, Menu } from '@steeze-ui/lucide-icons';
 import { Icon } from '@steeze-ui/svelte-icon';
 import type { ComponentType } from 'svelte';
 
-import { browser } from '$app/environment';
-import Button from '$lib/component/Button.svelte';
 import Callout from '$lib/markdoc-component/Callout.svelte';
 import Prism from '$lib/markdoc-component/Prism.svelte';
 import Ref from '$lib/markdoc-component/Ref.svelte';
@@ -52,12 +50,12 @@ const config: Config = {
       render: 'Ref',
 
       description: 'Display @docs/ reference',
-      // children: ['paragraph', 'tag', 'list'],
+      // Children: ['paragraph', 'tag', 'list'],
       attributes: {
         path: {
           type: String,
           required: true,
-          // default: 'note',
+          // Default: 'note',
           // matches: ['check', 'error', 'note', 'warning'],
         },
       },
