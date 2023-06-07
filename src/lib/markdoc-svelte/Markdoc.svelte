@@ -1,6 +1,7 @@
 <script lang="ts">
-import Markdoc, { type Config } from '@markdoc/markdoc';
 import type { ComponentType } from 'svelte';
+
+import Markdoc, { type Config } from '@markdoc/markdoc';
 
 import Tags from './Tags.svelte';
 

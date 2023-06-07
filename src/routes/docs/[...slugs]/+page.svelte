@@ -1,17 +1,17 @@
 <script lang="ts">
 export let data: PageData;
 
+import type { ComponentType } from 'svelte';
+import type { PageData } from './$types';
+
 import type { Config } from '@markdoc/markdoc';
 import { ChevronRight, Edit3, Menu } from '@steeze-ui/lucide-icons';
 import { Icon } from '@steeze-ui/svelte-icon';
-import type { ComponentType } from 'svelte';
 
 import Callout from '$lib/markdoc-component/Callout.svelte';
 import Prism from '$lib/markdoc-component/Prism.svelte';
 import Ref from '$lib/markdoc-component/Ref.svelte';
 import Markdoc from '$lib/markdoc-svelte/Markdoc.svelte';
-
-import type { PageData } from './$types';
 
 const components = new Map<string, ComponentType>([
   ['Callout', Callout],

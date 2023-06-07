@@ -1,10 +1,10 @@
 <script lang="ts">
+import type { PageData } from './$types';
+
 import { GitCommit, Github } from '@steeze-ui/lucide-icons';
 import { Icon } from '@steeze-ui/svelte-icon';
 
 import Button from '$lib/component/Button.svelte';
-
-import type { PageData } from './$types';
 
 export let data: PageData;
 console.log(data.commits);

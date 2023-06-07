@@ -1,9 +1,9 @@
+import type { PageServerLoad } from './$types';
+
 import { arr_map } from '@krist7599555/lodosh';
 import { async_pipe } from 'ts-async-pipe';
 
 import { STATIC_DOCS } from '$docs';
-
-import type { PageServerLoad } from './$types';
 
 function github_latest_commit() {
   return async_pipe(

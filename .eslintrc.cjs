@@ -35,7 +35,18 @@ module.exports = defineConfig({
     'svelte/no-at-html-tags': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-explicit-any': 'off',
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          ['^\\u0000'],
+          ['^svelte', '^\\.\\/\\$types', '^$app', '^@sveltejs'],
+          ['^[a-z@]'],
+          ['^\\$'],
+          ['^\\.'],
+        ],
+      },
+    ],
     'simple-import-sort/exports': 'error',
     'no-multi-spaces': 'error',
     'array-bracket-spacing': ['error', 'never'],
