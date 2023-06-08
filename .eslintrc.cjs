@@ -12,7 +12,7 @@ module.exports = defineConfig({
     'xo/browser',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'json-format'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'json-format', 'unicorn'],
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2020,
@@ -33,15 +33,6 @@ module.exports = defineConfig({
     },
   ],
   rules: {
-    // 'import/resolver': {
-    //   'eslint-import-resolver-custom-alias': {
-    //     alias: {
-    //       $docs: './src/docs.ts',
-    //       $lib: './src/lib',
-    //     },
-    //     extensions: ['.ts', '.svelte'],
-    //   },
-    // },
     'svelte/no-at-html-tags': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -63,7 +54,7 @@ module.exports = defineConfig({
     'object-curly-newline': ['error', { consistent: true }],
     'arrow-body-style': ['error', 'as-needed'],
     curly: 'warn',
-    // Eqeqeq: 'error',
+    eqeqeq: 'warn',
     'arrow-spacing': 'error',
     'block-spacing': 'error',
     'computed-property-spacing': ['error', 'never'],
@@ -84,9 +75,6 @@ module.exports = defineConfig({
       { anonymous: 'never', named: 'never', asyncArrow: 'always' },
     ],
     'space-infix-ops': 'error',
-    'template-curly-spacing': 'error',
-    'wrap-iife': ['error', 'outside'],
-    'yield-star-spacing': ['error', 'after'],
     camelcase: ['off'],
   },
   settings: {},
